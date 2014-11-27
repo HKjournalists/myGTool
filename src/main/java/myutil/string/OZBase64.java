@@ -1,4 +1,4 @@
-package myutil.base64;
+package myutil.string;
 
 import java.io.UnsupportedEncodingException;
 
