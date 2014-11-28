@@ -12,13 +12,7 @@ import java.net.URL;
  */
 public class PlayWithWeb {
 
-	public static void main(String[] a) throws IOException {
-
-		String url = "http://www.baidu.com";
-
-		System.out.println(ozGetHTML(url, "utf-8")); // 使用原网页里声明的gb2312反而会出现乱码
-
-	}
+	
 
 	/**
 	 * 获取 html 源码
@@ -58,5 +52,16 @@ public class PlayWithWeb {
 		return pageHTML.toString();
 
 	}
+	
+	
+	//测试
+	public static void main(String[] a) throws IOException {
+
+		String url = "http://www.baidu.com";
+
+		System.out.println(ozGetHTML(url, "utf-8")); // 使用原网页里声明的gb2312反而会出现乱码
+
+	}
+	
 
 }
