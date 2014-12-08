@@ -56,14 +56,16 @@ public class OZJson {
 	
 	/**例子*/
 	public static void main(String[] args) {
-		String patterStr = "{\"patternAnalysisInfo\":{\"4\":{\"countNum\":108989,\"successNum\":108953,\"successPer\":9},\"5\":{\"countNum\":108989,\"successNum\":108953,\"successPer\":9}}}";
-		JSONObject a = JSON.parseObject(patterStr);
-		JSONObject b  = a.getJSONObject("patternAnalysisInfo");
+//		String patterStr = "{\"patternAnalysisInfo\":{\"4\":{\"countNum\":108989,\"successNum\":108953,\"successPer\":9},\"5\":{\"countNum\":108989,\"successNum\":108953,\"successPer\":9}}}";
+//		JSONObject a = JSON.parseObject(patterStr);
+//		JSONObject b  = a.getJSONObject("patternAnalysisInfo");
+//		
+//		for( String id : b.keySet()) {
+//			System.out.println(id+":"+b.getJSONObject(id).getString("countNum"));
+//			System.out.println(b.getJSONObject(id).toString());
+//		}
 		
-		for( String id : b.keySet()) {
-			System.out.println(id+":"+b.getJSONObject(id).getString("countNum"));
-			System.out.println(b.getJSONObject(id).toString());
-		}
+		JSONObject js = new JSONObject();
 		
 		
 	}
