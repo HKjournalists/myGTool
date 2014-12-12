@@ -1,6 +1,7 @@
 package myutil.json;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 /**
@@ -52,6 +53,20 @@ public class OZJson {
 		return  null;
 	}
 	
+	
+	/**
+	 * 构建json数组
+	 */
+	public void ozBuildJsonArray(){
+		JSONObject js = new JSONObject();
+		js.put("a", "asdfas");
+		js.put("a2", "asdfas");
+		js.put("a3", "asdfas");
+		
+		JSONArray jsary = new JSONArray();
+		jsary.add(js);
+		jsary.add(js);
+	}
 	
 	
 	/**例子*/
