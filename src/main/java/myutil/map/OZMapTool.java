@@ -2,6 +2,7 @@ package myutil.map;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.Map.Entry;
 
 
@@ -58,6 +59,9 @@ public class OZMapTool {
 	 */
 	public void ozGetMapMethed() {
 		//例子在注释中
+		Map<String, String> map = new HashMap<String, String>();
+		
+		Set<String> key = map.keySet();
 	}
 
 	// 测试方法

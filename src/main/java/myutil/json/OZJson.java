@@ -5,6 +5,14 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 /**
+ * json 的几种格式
+ * {"DevInfo":[{"AgentName":"Python_Agent","Screen_Size":"480*800","Device_Model":"Lenovo+S760","AgentChannel":"Channel_ID","Network":"WIFI%E6%A8%A1%E5%BC%8F","System_Model":"2.3.4","Location":"","SDKVersion":"150204","UserId":"860157010327119-null-b42e03d9cc43ff4c","AgentID":"","DeviceSDKVersion":10}]}
+ * 
+ * 
+ */
+
+
+/**
  * json 的自定义工具类
  * @author Europe
  * @date 2014-4-25
@@ -68,6 +76,19 @@ public class OZJson {
 		jsary.add(js);
 	}
 	
+	/**
+	 * 遍历json数组
+	 */
+	public void ozWatchJsonArray(){
+//		String json1 = "{data:[{name:'Wallace'},{name:'Grommit'}]}";
+//		jsonObjSplit = new JSONObject(json1);
+//		JSONArray ja = jsonObjSplit.getJSONArray("data");
+//		for (int i = 0; i < ja.length(); i++) {
+//		JSONObject jo = (JSONObject) ja.get(i);
+//		System.out.println(jo.get("name"));
+//		}
+	}
+	
 	
 	/**例子*/
 	public static void main(String[] args) {
@@ -81,7 +102,8 @@ public class OZJson {
 //		}
 		
 		JSONObject js = new JSONObject();
-		
+		js.put("a", "s");
+		System.out.println(js.toJSONString());
 		
 	}
 	

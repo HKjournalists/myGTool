@@ -14,8 +14,8 @@ public class OZString {
 	 */
 	public void ozStrigIndexOf(){
 		
-		String str = "ba";
-		int a = str.indexOf("a");
+		String str = "wgdata_360buy_product_info";
+		int a = str.indexOf("promotion_info");
 		System.out.println(a);
 		
 	}

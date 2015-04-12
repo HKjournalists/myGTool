@@ -8,6 +8,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -190,11 +192,14 @@ public class OZFileTool {
 	public static void main(String[] args) throws Exception {
 		// readFile("C:\\My Work\\cache_data\\2014-05-06\\wgdata_taobao.product_info_2014050606_0.sql");
 
+		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd");
+		String dateStr = df.format(new Date());
+		
 		OZFileTool ozft = new OZFileTool();
-		ozft.ozWriteToFile("/Users/apple/gaga.txt", "asdfkjlsajkdflaksf", true);
+		ozft.ozWriteToFile("/Users/apple/gaga_"+dateStr+".txt", "asdfkjlsajkdflaksf", true);
 		
 		//file转为byte[]
-		byte[] fileByte = ozft.ozGetBytesFromFile(new File("/Users/apple/tmp/urlData.txt"));
+//		byte[] fileByte = ozft.ozGetBytesFromFile(new File("/Users/apple/tmp/urlData.txt"));
 
 	}
 

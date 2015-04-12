@@ -13,7 +13,7 @@ public class OZDate {
 	/**
 	 * 获得时间的方法
 	 * @param dateForm 时间格式。例如1、yyyy-MM-dd HH:mm:ss<br>
-	 * 													  2、yyyyMMddHHmmss
+	 * 													  2、yyyyMMddHHmmssSSSS 大S表示毫秒
 	 * @return 字符串类型
 	 */
 	public static String ozGetDate(String dateForm){
@@ -47,9 +47,14 @@ public class OZDate {
 		long time = today.getTime();
 	}
 	
-	
+	public static void ozGetHour(){
+		Date d = new Date();
+		int hours = d.getHours();
+		System.out.println(hours);
+	}
 	
 	public static void main(String[] args) {
-		System.out.println(ozGetDate("yyyy_MM_dd"));
+		System.out.println(ozGetDate("yyyy-MM-dd HH:mm:ss"));
+//		ozGetHour();
 	}
 }

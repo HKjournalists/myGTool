@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.datastax.driver.core.Session;
+
 /**
  * 连接数据库用的类。    
  * <pre>
@@ -182,11 +184,11 @@ public class OZJDBC {
 	 */
 	public static void main(String[] args) {
 		OZJDBC myJDBC = new OZJDBC();
-//		myJDBC.ozSetUserPar("192.168.0.179:3306", "sku", "root", "mysql");
+		myJDBC.ozSetUserPar("192.168.0.179:3306", "sku", "root", "mysql");
 //		myJDBC.ozSetUserPar("192.168.0.161", "wgdata", "root", "isu123456");
-		myJDBC.ozSetUserPar("127.0.0.1:3306", "wgdata_143", "root", "123456");//本地
+//		myJDBC.ozSetUserPar("127.0.0.1:3306", "wgdata_143", "root", "123456");//本地
 		myJDBC.ozGetConn();
-		ResultSet rs = myJDBC.ozQuery("select * from `wgdata_143`.`check_rows_list`  limit 0,100");
+//		ResultSet rs = myJDBC.ozQuery("select * from `wgdata_143`.`check_rows_list`  limit 0,100");
 //		ozClose();
 //		System.out.println(rs);
 //		myJDBC.ozClose(rs);
@@ -197,6 +199,39 @@ public class OZJDBC {
 //		System.out.println(a);
 	}
 	
+	/**
+	 * 关闭
+	 */
+	public static void ozClose(){
+//		finally {
+//			if (resultSet != null) {
+//				try {
+//					resultSet.close();
+//					LOG.info("resultSet = "+resultSet);
+//				} catch (SQLException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//			}
+//			if (preparedStatement != null) {
+//				try {
+//					preparedStatement.close();
+//					LOG.info("preparedStatement = "+preparedStatement);
+//				} catch (SQLException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//			}
+//			if (conn != null) {
+//				try {
+//					conn.close();
+//					LOG.info("conn = "+conn);
+//				} catch (SQLException e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		}
+	}
 	
 	
 	/**

@@ -64,7 +64,7 @@ public class OZCassandra {
 		
 		
 		
-		//预编译占位符的凡事
+		//预编译占位符的方式
 		BoundStatement bindStatement = 
 				session.prepare(
 				"select * from mykeyspace.tablename where a=? and b=?")
