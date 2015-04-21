@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
@@ -36,7 +37,26 @@ public class SqlServerHelper {
 		return null;
 	}
 	
-	
+	/**
+	 * 插入语句
+	 */
+	public void insertSqlServer(){
+		Connection conn = this.getConnection();
+		Statement stamt = null;
+		try {
+			stamt = conn.createStatement();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String sql = ".......";
+		try {
+			stamt.execute(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	
 	public static void main(String[] args) {
