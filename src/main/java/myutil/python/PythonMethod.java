@@ -11,11 +11,12 @@ public class PythonMethod {
 //	for each_item in movies:print(each_item)
 	
 	//while循环
-//	count = 0
-//	while count<len(movies):
-//		print(movies[count])
-//		count = count+1
-	
+	/*
+	count = 0
+	while count<len(movies):
+		print(movies[count])
+		count = count+1
+	*/
 	
 	
 }
