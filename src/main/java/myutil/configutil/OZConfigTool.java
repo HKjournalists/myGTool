@@ -34,7 +34,7 @@ public class OZConfigTool {
 			properties.load(inputFile);
 			inputFile.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			System.err.println("读取属性文件--->失败！- 原因：文件路径错误或者文件不存在");
 			e.printStackTrace();
 		}

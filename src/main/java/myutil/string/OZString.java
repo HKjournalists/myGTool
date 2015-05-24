@@ -20,7 +20,11 @@ public class OZString {
 		
 	}
 	
-	
+	/*
+	 * String s = "qqqq=wwww=eee=rrrrrrrr"
+	 * s.split("=",2);以＝为分割，分成两部分
+	 * 
+	 */
 	
 	
 	

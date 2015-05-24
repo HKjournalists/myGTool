@@ -66,6 +66,13 @@
 			<artifactId>sqljdbc4</artifactId>
 			<version>3.0</version>
 		</dependency>
+		
+		<!-- rabbit mq -->
+		<dependency>
+			<groupId>com.rabbitmq</groupId>
+			<artifactId>amqp-client</artifactId>
+			<version>3.3.4</version>
+		</dependency>
 
 	</dependencies>
 </project>

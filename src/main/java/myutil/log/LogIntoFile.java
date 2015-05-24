@@ -28,7 +28,6 @@ public class LogIntoFile {
 			fileWriter.close();
 			System.out.println(data);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
