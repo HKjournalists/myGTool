@@ -1,5 +1,8 @@
 package myutil.map;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -64,6 +67,32 @@ public class OZMapTool {
 		Set<String> key = map.keySet();
 	}
 
+	
+	
+	/**
+     * 对map进行排序,倒序排列
+     * @param h
+     * @param isDesc
+     * @return
+     */
+    public static ArrayList sortMap(Map h,final boolean isDesc){
+        ArrayList<Map.Entry<Long,Integer>> l = new ArrayList<Map.Entry<Long,Integer>>(h.entrySet());     
+        Collections.sort(l, new Comparator<Map.Entry<Long, Integer>>() {       
+			public int compare(Entry<Long, Integer> o1,
+					Entry<Long, Integer> o2) {
+				if(isDesc)
+					return o2.getValue() - o1.getValue();
+				else
+					return o1.getValue() - o2.getValue();
+			}
+        });
+        return l;
+    }
+	
+	
+	
+	
+	
 	// 测试方法
 	public static void main(String[] args) {
 		Map<Integer, String> map = new HashMap<Integer, String>();
