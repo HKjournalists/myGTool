@@ -1,4 +1,4 @@
-package distinguish.pc.util.rsatest;
+package myutil.rsa;
 
 import java.io.ByteArrayOutputStream;
 import java.security.Key;
@@ -17,7 +17,6 @@ import java.util.Map;
 
 import javax.crypto.Cipher;
 
-import distinguish.pc.util.rsades.RSAUtil;
 
 /** *//**
  * <p>
@@ -100,14 +99,14 @@ public class RSAUtils {
      * @throws Exception
      */
     public static String sign(byte[] data, String privateKey) throws Exception {
-        byte[] keyBytes = RSAUtil.toBytes(privateKey);
+        byte[] keyBytes = RSAUtils.toBytes(privateKey);
         PKCS8EncodedKeySpec pkcs8KeySpec = new PKCS8EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
         PrivateKey privateK = keyFactory.generatePrivate(pkcs8KeySpec);
         Signature signature = Signature.getInstance(SIGNATURE_ALGORITHM);
         signature.initSign(privateK);
         signature.update(data);
-        return RSAUtil.toHexString(signature.sign());
+        return RSAUtils.toHexString(signature.sign());
     }
 
     /** *//**
@@ -125,14 +124,14 @@ public class RSAUtils {
      */
     public static boolean verify(byte[] data, String publicKey, String sign)
             throws Exception {
-        byte[] keyBytes = RSAUtil.toBytes(publicKey);
+        byte[] keyBytes = RSAUtils.toBytes(publicKey);
         X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
         PublicKey publicK = keyFactory.generatePublic(keySpec);
         Signature signature = Signature.getInstance(SIGNATURE_ALGORITHM);
         signature.initVerify(publicK);
         signature.update(data);
-        return signature.verify(RSAUtil.toBytes(sign));
+        return signature.verify(RSAUtils.toBytes(sign));
     }
 
     /** *//**
@@ -147,7 +146,7 @@ public class RSAUtils {
      */
     public static byte[] decryptByPrivateKey(byte[] encryptedData, String privateKey)
             throws Exception {
-        byte[] keyBytes = RSAUtil.toBytes(privateKey);
+        byte[] keyBytes = RSAUtils.toBytes(privateKey);
         PKCS8EncodedKeySpec pkcs8KeySpec = new PKCS8EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
         Key privateK = keyFactory.generatePrivate(pkcs8KeySpec);
@@ -186,7 +185,7 @@ public class RSAUtils {
      */
     public static byte[] decryptByPublicKey(byte[] encryptedData, String publicKey)
             throws Exception {
-        byte[] keyBytes = RSAUtil.toBytes(publicKey);
+        byte[] keyBytes = RSAUtils.toBytes(publicKey);
         X509EncodedKeySpec x509KeySpec = new X509EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
         Key publicK = keyFactory.generatePublic(x509KeySpec);
@@ -225,7 +224,7 @@ public class RSAUtils {
      */
     public static byte[] encryptByPublicKey(byte[] data, String publicKey)
             throws Exception {
-        byte[] keyBytes = RSAUtil.toBytes(publicKey);
+        byte[] keyBytes = RSAUtils.toBytes(publicKey);
         X509EncodedKeySpec x509KeySpec = new X509EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
         Key publicK = keyFactory.generatePublic(x509KeySpec);
@@ -265,7 +264,7 @@ public class RSAUtils {
      */
     public static byte[] encryptByPrivateKey(byte[] data, String privateKey)
             throws Exception {
-        byte[] keyBytes = RSAUtil.toBytes(privateKey);
+        byte[] keyBytes = RSAUtils.toBytes(privateKey);
         PKCS8EncodedKeySpec pkcs8KeySpec = new PKCS8EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
         Key privateK = keyFactory.generatePrivate(pkcs8KeySpec);
@@ -304,7 +303,7 @@ public class RSAUtils {
     public static String getPrivateKey(Map<String, Object> keyMap)
             throws Exception {
         Key key = (Key) keyMap.get(PRIVATE_KEY);
-        return RSAUtil.toHexString(key.getEncoded());
+        return RSAUtils.toHexString(key.getEncoded());
     }
 
     /** *//**
@@ -319,7 +318,30 @@ public class RSAUtils {
     public static String getPublicKey(Map<String, Object> keyMap)
             throws Exception {
         Key key = (Key) keyMap.get(PUBLIC_KEY);
-        return RSAUtil.toHexString(key.getEncoded());
+        return RSAUtils.toHexString(key.getEncoded());
     }
+    
+    
+    public static String toHexString(byte[] b) {
+		StringBuilder sb = new StringBuilder(b.length * 2);
+		for (int i = 0; i < b.length; i++) {
+			sb.append(HEXCHAR[(b[i] & 0xf0) >>> 4]);
+			sb.append(HEXCHAR[b[i] & 0x0f]);
+		}
+		return sb.toString();
+	}
+
+	public static final byte[] toBytes(String s) {
+		byte[] bytes;
+		bytes = new byte[s.length() / 2];
+		for (int i = 0; i < bytes.length; i++) {
+			bytes[i] = (byte) Integer.parseInt(s.substring(2 * i, 2 * i + 2),
+					16);
+		}
+		return bytes;
+	}
+
+	private static char[] HEXCHAR = { '0', '1', '2', '3', '4', '5', '6', '7',
+			'8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
 
 }
