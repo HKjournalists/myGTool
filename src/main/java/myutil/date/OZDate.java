@@ -2,6 +2,7 @@ package myutil.date;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -52,6 +53,66 @@ public class OZDate {
 		int hours = d.getHours();
 		System.out.println(hours);
 	}
+	
+	/**
+	 * 精确获取年月日
+	 */
+	public static void ozGetDate(){
+		Calendar now = Calendar.getInstance();
+		int year = now.get(1);
+		int month = now.get(2) + 1;
+		int day = now.get(5);//今天
+//		int day = now.get(5) + 1;//明天
+		String months = month + "";
+		String days = day + "";
+
+		if (month < 10) {
+			months = "0" + month;
+		}
+		if (day < 10) {
+			days = "0" + day;
+		}
+	}
+	
+	/**
+	 * 获取第二天的时间，建表的时候用到
+	 */
+	public static void nextDay(){
+		Calendar now = Calendar.getInstance();
+		int year = now.get(1);
+		int month = now.get(2) + 1;
+//		int day = now.get(5) - 2;//昨天
+//		int day = now.get(5);//今天
+		int day = now.get(5) + 1;//明天
+		
+		
+		if(month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12){
+			if(day == 32){
+//				day = 31;
+				day = 01;
+				month = month+1;
+			}
+		}else{
+			if(day == 31){
+				day = 01;
+				month = month+1;
+			}
+		}
+		
+		String months = month+"";
+		String days = day+"";
+		
+		if (month < 10) {
+			months = "0" + month;
+		}
+		if (day < 10) {
+			days = "0" + day;
+		}
+
+		String tableDate = year + "_" + months + "_" + days;
+		System.out.println(year + " " + months + " " + days + "");
+	}
+	
 	
 	public static void main(String[] args) {
 		System.out.println(ozGetDate("yyyy-MM-dd HH:mm:ss"));

@@ -58,7 +58,7 @@ public class OZFileTool {
 	 */
 	public void ozWriteToFile(String fileParthName, String data, boolean isAfter)
 			throws Exception {
-
+		
 		// FileWriter fileWriter=new FileWriter(fileParthName, true); //
 		// true代表追加
 		FileWriter fileWriter = new FileWriter(fileParthName, isAfter);
@@ -181,7 +181,7 @@ public class OZFileTool {
 			throw new Exception("Could not completely read file "+ file.getName());
 
 		}
-
+		
 		// Close the input stream and return bytes
 
 		is.close();

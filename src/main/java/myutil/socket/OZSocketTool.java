@@ -91,4 +91,46 @@ public class OZSocketTool {
 
 	}
 
+	
+	/**
+	 * 有给客户端返回值
+	 * 用来启动 socket 线程的线程
+	 * 
+	 * @author Europe
+	 */
+//	class StartSocketThreed implements Runnable {
+//
+//		public void run() {
+//			// 启动socket
+//			try {
+//				System.out.println("启动socket监听,端口号："+StaticString.socketPoint);
+//				ServerSocket s;
+//				s = new ServerSocket(StaticString.socketPoint);
+//				DataMonitorService mt = new DataMonitorService();
+//				while (true) {
+//					Socket incoming = s.accept();
+//					
+//					BufferedReader br = new BufferedReader(new InputStreamReader(incoming.getInputStream()));
+//					//读取客户端发送来的消息  
+//		            String mess = br.readLine();  
+//		            System.out.println("客户端："+mess);
+//					
+//		            ReadData readData = new ReadData();
+//		            readData.readDataLine();
+//		            
+//		            
+//		            //给客户端返回值
+//		            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(incoming.getOutputStream()));
+//		            bw.write(mess+"\n");
+//		            bw.flush();
+//					
+//				}
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//
+//	}
+	
+	
 }

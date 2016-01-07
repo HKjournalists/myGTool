@@ -2,6 +2,7 @@ package myutil.dbutil;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -57,6 +58,59 @@ public class SqlServerHelper {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * sql server 查询, 得到返回结果。
+	 */
+	public static void testCall(){
+		Connection conn = null;
+		Statement stmt = null;
+//		Map<String, String> map = new HashMap<String, String>();
+		try {
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver") ;
+			conn = DriverManager.getConnection("jdbc:sqlserver://192.168.0.162:1433;DatabaseName=eCDC_analysis" , "sa" , "Isu123456") ;
+//			stmt = conn.createStatement();
+//			//检验邮箱
+//			ResultSet rs = stmt.executeQuery("SELECT * FROM eru_app_cate_item_ref where item_id=");
+			CallableStatement callStmt = null;
+			callStmt = conn.prepareCall("{call pr_UserData_info(?)}");
+			  
+           // 参数index从1开始，依次 1,2,3...  
+           callStmt.setString(1, "2837831");
+           callStmt.execute();
+           ResultSet rs = callStmt.executeQuery();
+           int colunmCount = rs.getMetaData().getColumnCount();
+           String[] colNameArr = new String[colunmCount];  
+           for (int i = 0; i < colunmCount; i++) {
+               colNameArr[i] = rs.getMetaData().getColumnName(i + 1);  
+           } 
+//           System.out.println("----" + JSON.toJSONString(colNameArr));
+           
+           while (rs.next()) {  
+               StringBuffer sb = new StringBuffer();  
+               for (int i = 0; i < colunmCount; i++) {  
+                   sb.append(rs.getString(i + 1) + " | ");  
+               }  
+               System.out.println(sb);  
+           }  
+           System.out.println("-------------------");
+           System.out.println(rs);
+           System.out.println("-------------------");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			try {
+				if(stmt != null ) stmt.close();
+				if(conn != null ) conn.close();
+			} catch (SQLException e) {
+			}
+		}
+	}
+	
+	
+	
 	
 	
 	public static void main(String[] args) {
