@@ -20,9 +20,9 @@ public class Basic
 {
     public static void main(String[] args)
     {
-        String hostname = "115.28.140.51";
+        String hostname = "127.0.0.1";
         String username = "root";
-        String password = "9u3sNqb&nS$e";
+        String password = "XXXXX";
 
         try
         {
