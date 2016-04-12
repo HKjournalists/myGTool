@@ -10,7 +10,9 @@ public class ExcLinuxCommand {
 		
 		System.out.println("aaa");
 		Process ps = null;
-		String[] cmd = {"/bin/sh", "-c","java -jar /Users/apple/贾维斯/jarvis2.0-otherdayData.jar"};
+		String[] cmd = {"/bin/sh", "-c","sh /Users/apple/Desktop/tt.sh"};
+//		String[] cmd = {"/bin/sh", "-c","sh /data/netty/kafka2kafka/restartkafka2kafka.sh"};
+//		String[] cmd = {"/bin/sh", "-c","java -jar /Users/apple/贾维斯/jarvis2.0-otherdayData.jar"};
 		try {
 			ps = Runtime.getRuntime().exec(cmd);
 //			System.out.println(ps);

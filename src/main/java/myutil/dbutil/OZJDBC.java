@@ -184,7 +184,11 @@ public class OZJDBC {
 	 */
 	public static void main(String[] args) {
 		OZJDBC myJDBC = new OZJDBC();
-		myJDBC.ozSetUserPar("192.168.0.179:3306", "sku", "root", "mysql");
+		myJDBC.ozSetUserPar("114.112.97.68", "etl", "etl", "Etl.12345");
+//		myJDBC.ozSetUserPar("192.168.0.179:3306", "sku", "root", "mysql");
+		
+		
+		
 //		myJDBC.ozSetUserPar("192.168.0.161", "wgdata", "root", "isu123456");
 //		myJDBC.ozSetUserPar("127.0.0.1:3306", "wgdata_143", "root", "123456");//本地
 		myJDBC.ozGetConn();

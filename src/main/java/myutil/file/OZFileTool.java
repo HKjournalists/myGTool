@@ -68,7 +68,7 @@ public class OZFileTool {
 		fileWriter.flush();
 		fileWriter.close();
 
-		System.out.println("文件内容写入完成。位置："+fileParthName);
+		System.out.println("文件内容写入完成。位置："+fileParthName+" pos"+data);
 
 	}
 
